@@ -16,378 +16,219 @@
 </head>
 <body>
 
-  <!-- ==================== HEADER ==================== -->
+  <!-- ==================== 顶部导航栏 ==================== -->
   <header class="header">
-    <div class="container header-inner">
+    <div class="header-inner">
 
-      <!-- Logo -->
-      <div class="logo" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+      <!-- 左侧 Logo -->
+      <a class="logo" href="#" onclick="showAlert(event)">
         <div class="logo-icon">岐</div>
-        岐黄之道
-      </div>
+        <span class="logo-text">岐黄之道</span>
+      </a>
 
-      <!-- 移动端汉堡菜单 -->
-      <button class="hamburger" id="hamburger" aria-label="菜单">
-        <span></span><span></span><span></span>
-      </button>
-
-      <!-- 导航 -->
-      <nav class="nav" id="nav">
-        <a href="#home" class="nav-link">首页</a>
-        <a href="#herbs" class="nav-link">中草药</a>
-        <a href="#patent" class="nav-link" data-wip="中成药查询">中成药</a>
-        <a href="#meridian" class="nav-link" data-wip="经络穴位查询">经络穴位</a>
-        <a href="#prescription" class="nav-link" data-wip="名家药方查询">名家医方</a>
-        <a href="#diet" class="nav-link" data-wip="食材药膳推荐">食材药膳</a>
-      </nav>
-
-      <!-- 搜索框 -->
+      <!-- 中间 搜索框 -->
       <div class="header-search">
-        <input type="text" id="headerSearch" placeholder="搜索中医知识…">
-        <button id="searchBtn" aria-label="搜索"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <input type="text" id="headerSearch" class="search-input" placeholder="请输入关键词" onkeydown="handleSearchEnter(event)">
+        <button class="search-btn" onclick="showAlert(event)" aria-label="搜索">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
       </div>
+
+      <!-- 右侧 用户登录入口 -->
+      <a class="header-user" href="#" onclick="showAlert(event)">
+        <div class="user-avatar">
+          <i class="fa-solid fa-user"></i>
+        </div>
+        <span class="user-text">登录/注册</span>
+      </a>
+
     </div>
   </header>
 
-  <!-- ==================== HERO ==================== -->
-  <section class="hero" id="home">
-    <div class="container hero-inner">
+  <!-- ==================== 首屏 Banner 区 ==================== -->
+  <section class="banner" id="home">
+    <div class="banner-content">
+      <h1 class="banner-title">知身自查 · 未病先防</h1>
+      <p class="banner-subtitle">了解体质状况，掌握健康主动权</p>
 
-      <!-- 顶部装饰 -->
-      <div class="hero-top-ornament">
-        <span class="line"></span>
-        <span class="dot"></span>
-        <span class="hero-subtitle-top">岐 黄 之 道</span>
-        <span class="dot"></span>
-        <span class="line"></span>
-      </div>
-
-      <!-- 主标题 -->
-      <h1 class="hero-title">
-        传承千年智慧 <span class="highlight">守护生命健康</span>
-      </h1>
-      <p class="hero-subtitle">调和阴阳 · 养生有道</p>
-      <p class="hero-tagline">
-        天人合一<span>|</span>阴阳平衡<span>|</span>形神共养
-      </p>
-
-      <!-- 装饰场景 -->
-      <div class="hero-scene">
-        <div class="scene-item">
-          <div class="scene-icon"><i class="fa-solid fa-leaf"></i></div>
-          <span class="scene-label">道地药材</span>
+      <!-- 4个功能入口卡片 -->
+      <div class="banner-cards">
+        <div class="banner-card" onclick="showAlert(event)">
+          <div class="banner-card-icon">
+            <i class="fa-solid fa-leaf"></i>
+          </div>
+          <h3 class="banner-card-title">本草纲目</h3>
+          <p class="banner-card-en">Compendium of Materia Medica</p>
         </div>
-        <div class="scene-item">
-          <div class="scene-icon"><i class="fa-solid fa-scale-balanced"></i></div>
-          <span class="scene-label">精准配伍</span>
+        <div class="banner-card" onclick="showAlert(event)">
+          <div class="banner-card-icon">
+            <i class="fa-solid fa-hand-dots"></i>
+          </div>
+          <h3 class="banner-card-title">经络穴位</h3>
+          <p class="banner-card-en">Meridians &amp; Acupoints</p>
         </div>
-        <div class="scene-item">
-          <div class="scene-icon"><i class="fa-solid fa-book-open"></i></div>
-          <span class="scene-label">古籍经典</span>
+        <div class="banner-card" onclick="showAlert(event)">
+          <div class="banner-card-icon">
+            <i class="fa-solid fa-utensils"></i>
+          </div>
+          <h3 class="banner-card-title">食方同源</h3>
+          <p class="banner-card-en">Food as Medicine</p>
         </div>
-        <div class="scene-item">
-          <div class="scene-icon"><i class="fa-solid fa-mug-hot"></i></div>
-          <span class="scene-label">药食同源</span>
-        </div>
-      </div>
-
-      <!-- 4个圆形概念卡片 -->
-      <div class="concept-row">
-        <div class="concept-card" data-wip="调理体质">
-          <div class="concept-circle"><i class="fa-solid fa-heart-pulse"></i></div>
-          <span>调理体质</span>
-        </div>
-        <div class="concept-card" data-wip="预防为先">
-          <div class="concept-circle"><i class="fa-solid fa-shield-halved"></i></div>
-          <span>预防为先</span>
-        </div>
-        <div class="concept-card" data-wip="因人施养">
-          <div class="concept-circle"><i class="fa-solid fa-person"></i></div>
-          <span>因人施养</span>
-        </div>
-        <div class="concept-card" data-wip="科学养生">
-          <div class="concept-circle"><i class="fa-solid fa-flask"></i></div>
-          <span>科学养生</span>
-        </div>
-      </div>
-
-      <!-- 6个功能入口卡片 -->
-      <div class="entry-grid">
-        <div class="entry-card" data-wip="中草药查询">
-          <span class="card-icon"><i class="fa-solid fa-seedling"></i></span>
-          <h3>中草药</h3>
-        </div>
-        <div class="entry-card" data-wip="中成药查询">
-          <span class="card-icon"><i class="fa-solid fa-capsules"></i></span>
-          <h3>中成药</h3>
-        </div>
-        <div class="entry-card" data-wip="经络穴位查询">
-          <span class="card-icon"><i class="fa-solid fa-hand-dots"></i></span>
-          <h3>经络穴位</h3>
-        </div>
-        <div class="entry-card" data-wip="名家药方查询">
-          <span class="card-icon"><i class="fa-solid fa-scroll"></i></span>
-          <h3>名家药方</h3>
-        </div>
-        <div class="entry-card" data-wip="食材药膳推荐">
-          <span class="card-icon"><i class="fa-solid fa-bowl-food"></i></span>
-          <h3>食材药膳</h3>
-        </div>
-        <div class="entry-card" data-wip="望闻问切自测">
-          <span class="card-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
-          <h3>望闻问切</h3>
+        <div class="banner-card" onclick="showAlert(event)">
+          <div class="banner-card-icon">
+            <i class="fa-solid fa-stethoscope"></i>
+          </div>
+          <h3 class="banner-card-title">望闻问切</h3>
+          <p class="banner-card-en">Four Diagnostic Methods</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ==================== SECTION 2 — 传承千年智慧 ==================== -->
-  <section class="section-wisdom" id="wisdom">
-    <div class="container">
-
-      <div class="section-header">
-        <h2>传承千年智慧</h2>
-        <div class="decorative-line"></div>
-        <p>融合中医经典理论，为您提供全方位的健康养生指导</p>
-      </div>
-
-      <!-- 4个特色卡片 -->
-      <div class="feature-grid">
-        <div class="feature-card">
-          <div class="feature-icon"><i class="fa-solid fa-heart-pulse"></i></div>
-          <h3>调理体质</h3>
-          <p>基于九种体质理论，精准辨识您的体质类型，量体裁衣调养方案</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon"><i class="fa-solid fa-shield-virus"></i></div>
-          <h3>预防为先</h3>
-          <p>上医治未病，预防胜于治疗，提供季节性防病养生建议</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon"><i class="fa-solid fa-user-gear"></i></div>
-          <h3>因人施养</h3>
-          <p>不同体质不同养法，为您定制个性化食疗、运动、起居方案</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon"><i class="fa-solid fa-microscope"></i></div>
-          <h3>科学养生</h3>
-          <p>传统智慧结合现代科学，用数据与证据指导健康生活</p>
-        </div>
-      </div>
-
-      <!-- 3个大卡片 -->
-      <div class="cta-grid">
-        <div class="cta-card">
-          <span class="cta-icon">🫁</span>
-          <h3>身体健康自测</h3>
-          <p>了解自身体质状况<br>精准健康管理</p>
-          <button class="btn-red" data-wip="身体健康自测">开始测评 <i class="fa-solid fa-arrow-right"></i></button>
-        </div>
-        <div class="cta-card">
-          <span class="cta-icon">📖</span>
-          <h3>中医文献查询</h3>
-          <p>经典传承千年智慧<br>权威资料随手可查</p>
-          <button class="btn-red" data-wip="中医文献查询">立即查询 <i class="fa-solid fa-arrow-right"></i></button>
-        </div>
-        <div class="cta-card">
-          <span class="cta-icon">📜</span>
-          <h3>名家药方推荐</h3>
-          <p>古方今用辨证施治<br>经验传承惠及万家</p>
-          <button class="btn-red" data-wip="名家药方推荐">查看药方 <i class="fa-solid fa-arrow-right"></i></button>
-        </div>
-      </div>
-
+  <!-- ==================== 医理浅说板块 ==================== -->
+  <section class="section theory" id="theory">
+    <div class="section-header">
+      <h2 class="section-title">医理浅说</h2>
+      <p class="section-subtitle">通俗讲中医 · 轻松学养生</p>
     </div>
-  </section>
 
-  <!-- ==================== SECTION 3 — 中华民族传统文化 ==================== -->
-  <section class="section-culture" id="culture">
-    <div class="container">
-
-      <div class="section-header">
-        <h2>中华民族传统文化</h2>
-        <div class="decorative-line"></div>
-        <p>中医植根于中华传统文化的沃土，天人合一，道法自然</p>
+    <div class="theory-grid">
+      <!-- 阴阳五行 -->
+      <div class="theory-card" onclick="showAlert(event)">
+        <div class="theory-card-header">
+          <div class="theory-card-icon">
+            <i class="fa-solid fa-yin-yang"></i>
+          </div>
+          <h3 class="theory-card-title">阴阳五行</h3>
+        </div>
+        <p class="theory-card-desc">中医基础理论的核心</p>
+        <span class="theory-card-tag">基础理论</span>
       </div>
 
-      <div class="culture-grid">
-
-        <!-- 二十四节气 -->
-        <div class="culture-card" data-wip="二十四节气">
-          <div class="culture-card-visual">
-            <div class="diagram">
-              <i class="fa-solid fa-calendar-days" style="color:var(--green-mid);"></i>
-            </div>
+      <!-- 气血津液 -->
+      <div class="theory-card" onclick="showAlert(event)">
+        <div class="theory-card-header">
+          <div class="theory-card-icon">
+            <i class="fa-solid fa-droplet"></i>
           </div>
-          <div class="culture-card-body">
-            <h3>二十四节气</h3>
-            <p>顺应天时，因时养生</p>
-            <button class="btn-outline">查看详情 <i class="fa-solid fa-chevron-right"></i></button>
-          </div>
+          <h3 class="theory-card-title">气血津液</h3>
         </div>
+        <p class="theory-card-desc">生命活动的物质基础</p>
+        <span class="theory-card-tag">基础理论</span>
+      </div>
 
-        <!-- 周易智慧 -->
-        <div class="culture-card" data-wip="周易智慧">
-          <div class="culture-card-visual">
-            <div class="diagram yinyang"></div>
+      <!-- 四时干支 -->
+      <div class="theory-card" onclick="showAlert(event)">
+        <div class="theory-card-header">
+          <div class="theory-card-icon">
+            <i class="fa-solid fa-calendar-days"></i>
           </div>
-          <div class="culture-card-body">
-            <h3>周易智慧</h3>
-            <p>阴阳变易，生生不息</p>
-            <button class="btn-outline">查看详情 <i class="fa-solid fa-chevron-right"></i></button>
-          </div>
+          <h3 class="theory-card-title">四时干支</h3>
         </div>
+        <p class="theory-card-desc">二十四节气与天干地支 · 顺应天时养生</p>
+        <span class="theory-card-tag">节气养生</span>
+      </div>
 
-        <!-- 天干地支 -->
-        <div class="culture-card" data-wip="天干地支">
-          <div class="culture-card-visual">
-            <div class="diagram">
-              <i class="fa-solid fa-clock" style="color:#6b4fa0;"></i>
-            </div>
+      <!-- 易道五行 -->
+      <div class="theory-card" onclick="showAlert(event)">
+        <div class="theory-card-header">
+          <div class="theory-card-icon">
+            <i class="fa-solid fa-mountain"></i>
           </div>
-          <div class="culture-card-body">
-            <h3>天干地支</h3>
-            <p>干支纪时，运气学说</p>
-            <button class="btn-outline">查看详情 <i class="fa-solid fa-chevron-right"></i></button>
-          </div>
+          <h3 class="theory-card-title">易道五行</h3>
         </div>
-
-        <!-- 五行学说 -->
-        <div class="culture-card" data-wip="五行学说">
-          <div class="culture-card-visual">
-            <div class="diagram">
-              <i class="fa-solid fa-star" style="color:var(--red-accent);"></i>
-            </div>
-          </div>
-          <div class="culture-card-body">
-            <h3>五行学说</h3>
-            <p>相生相克，动态平衡</p>
-            <button class="btn-outline">查看详情 <i class="fa-solid fa-chevron-right"></i></button>
-          </div>
-        </div>
-
+        <p class="theory-card-desc">周易智慧与五行学说 · 阴阳变化之道</p>
+        <span class="theory-card-tag">经典智慧</span>
       </div>
     </div>
   </section>
 
-  <!-- ==================== SECTION 4 — 中医知识库 ==================== -->
-  <section class="section-knowledge" id="knowledge">
-    <div class="container">
+  <!-- ==================== 中医知识库板块 ==================== -->
+  <section class="section knowledge" id="knowledge">
+    <div class="section-header">
+      <h2 class="section-title">中医知识库</h2>
+    </div>
 
-      <div class="section-header" style="color:var(--white);">
-        <h2 style="color:var(--white);">中医知识库</h2>
-        <div class="decorative-line"></div>
-        <p style="color:rgba(255,255,255,0.6);">海量中医资源，随时随地学习与交流</p>
+    <div class="knowledge-grid">
+      <!-- 养生视频 -->
+      <div class="knowledge-card" onclick="showAlert(event)">
+        <div class="knowledge-card-icon">
+          <i class="fa-solid fa-play-circle"></i>
+        </div>
+        <h3 class="knowledge-card-title">养生视频</h3>
+        <p class="knowledge-card-desc">精选养生功法与中医科普视频，跟学更轻松</p>
       </div>
 
-      <div class="knowledge-grid">
-        <div class="knowledge-item" data-wip="中医知识库">
-          <div class="k-icon"><i class="fa-solid fa-book"></i></div>
-          <span>中医知识库</span>
+      <!-- 健康资讯 -->
+      <div class="knowledge-card" onclick="showAlert(event)">
+        <div class="knowledge-card-icon">
+          <i class="fa-solid fa-newspaper"></i>
         </div>
-        <div class="knowledge-item" data-wip="养生视频">
-          <div class="k-icon"><i class="fa-solid fa-video"></i></div>
-          <span>养生视频</span>
-        </div>
-        <div class="knowledge-item" data-wip="健康资讯">
-          <div class="k-icon"><i class="fa-solid fa-newspaper"></i></div>
-          <span>健康资讯</span>
-        </div>
-        <div class="knowledge-item" data-wip="养生社区">
-          <div class="k-icon"><i class="fa-solid fa-users"></i></div>
-          <span>养生社区</span>
-        </div>
-        <div class="knowledge-item" data-wip="在线问诊">
-          <div class="k-icon"><i class="fa-solid fa-comment-medical"></i></div>
-          <span>在线问诊</span>
-        </div>
+        <h3 class="knowledge-card-title">健康资讯</h3>
+        <p class="knowledge-card-desc">最新中医健康资讯，掌握第一手养生动态</p>
       </div>
 
+      <!-- 养生社区 -->
+      <div class="knowledge-card" onclick="showAlert(event)">
+        <div class="knowledge-card-icon">
+          <i class="fa-solid fa-comments"></i>
+        </div>
+        <h3 class="knowledge-card-title">养生社区</h3>
+        <p class="knowledge-card-desc">与志同道合的朋友交流养生心得与经验</p>
+      </div>
+
+      <!-- 在线问诊 -->
+      <div class="knowledge-card" onclick="showAlert(event)">
+        <div class="knowledge-card-icon">
+          <i class="fa-solid fa-user-doctor"></i>
+        </div>
+        <h3 class="knowledge-card-title">在线问诊</h3>
+        <p class="knowledge-card-desc">专业中医师在线答疑，足不出户看中医</p>
+      </div>
     </div>
   </section>
 
-  <!-- ==================== FOOTER ==================== -->
+  <!-- ==================== 底部页脚 ==================== -->
   <footer class="footer">
-    <div class="container">
+    <div class="footer-inner">
 
-      <div class="footer-grid">
-
-        <!-- 品牌介绍 -->
-        <div class="footer-col">
-          <div class="footer-brand">🌿 岐黄之道</div>
-          <p class="footer-desc">
-            岐黄之道致力于传承和发扬中华传统医学文化，为广大用户提供专业、权威、便捷的中医健康服务。汇千年智慧，护万家安康。
-          </p>
-        </div>
-
-        <!-- 关于我们 -->
-        <div class="footer-col">
-          <h4>关于我们</h4>
-          <ul>
-            <li><a href="#" data-wip="关于我们">公司简介</a></li>
-            <li><a href="#" data-wip="专家团队">专家团队</a></li>
-            <li><a href="#" data-wip="联系我们">联系我们</a></li>
-            <li><a href="#" data-wip="加入我们">加入我们</a></li>
-          </ul>
-        </div>
-
-        <!-- 帮助中心 -->
-        <div class="footer-col">
-          <h4>帮助中心</h4>
-          <ul>
-            <li><a href="#" data-wip="常见问题">常见问题</a></li>
-            <li><a href="#" data-wip="使用指南">使用指南</a></li>
-            <li><a href="#" data-wip="隐私政策">隐私政策</a></li>
-            <li><a href="#" data-wip="用户协议">用户协议</a></li>
-          </ul>
-        </div>
-
-        <!-- 关注我们 -->
-        <div class="footer-col">
-          <h4>关注我们</h4>
-          <ul>
-            <li><a href="#" data-wip="微信公众号"><i class="fa-brands fa-weixin"></i> 微信公众号</a></li>
-            <li><a href="#" data-wip="微博"><i class="fa-brands fa-weibo"></i> 新浪微博</a></li>
-            <li><a href="#" data-wip="抖音"><i class="fa-brands fa-tiktok"></i> 抖音号</a></li>
-            <li><a href="#" data-wip="小红书"><i class="fa-solid fa-book"></i> 小红书</a></li>
-          </ul>
-        </div>
-
-        <!-- 二维码 -->
-        <div class="footer-col" style="display:flex;flex-direction:column;align-items:flex-start;">
-          <h4>扫码关注</h4>
-          <div class="footer-qr">
-            QR
-          </div>
-          <p style="font-size:0.75rem;margin-top:0.5rem;color:rgba(255,255,255,0.4);">关注微信公众号<br>获取更多养生资讯</p>
-        </div>
-
+      <!-- 页脚链接 -->
+      <div class="footer-links">
+        <a href="#" onclick="showAlert(event)">关于我们</a>
+        <span class="footer-divider">|</span>
+        <a href="#" onclick="showAlert(event)">帮助中心</a>
+        <span class="footer-divider">|</span>
+        <a href="#" onclick="showAlert(event)">关注我们</a>
+        <span class="footer-divider">|</span>
+        <a href="#" onclick="showAlert(event)">平台介绍</a>
+        <span class="footer-divider">|</span>
+        <a href="#" onclick="showAlert(event)">联系我们</a>
+        <span class="footer-divider">|</span>
+        <a href="#" onclick="showAlert(event)">加入我们</a>
+        <span class="footer-divider">|</span>
+        <a href="#" onclick="showAlert(event)">意见反馈</a>
+        <span class="footer-divider">|</span>
+        <a href="#" onclick="showAlert(event)">免责声明</a>
+        <span class="footer-divider">|</span>
+        <a href="#" onclick="showAlert(event)">网站地图</a>
       </div>
 
-      <!-- 底部版权 -->
-      <div class="footer-bottom">
-        <span>© 2024 岐黄之道 qihuangzhidao.cn — 传承千年智慧 · 守护生命健康</span>
-        <span><a href="#" data-wip="备案信息">京ICP备XXXXXXXX号</a></span>
+      <!-- 版权信息 -->
+      <div class="footer-copyright">
+        <p>© 2024 岐黄之道中医养生平台 版权所有</p>
+        <p>备案号：京ICP备20240001号-1</p>
       </div>
+
+      <!-- 经典语录 -->
+      <div class="footer-quote">
+        <p>「上医治未病，中医治欲病，下医治已病」</p>
+        <p class="footer-quote-src">——《黄帝内经》</p>
+      </div>
+
     </div>
   </footer>
 
-  <!-- ==================== 回到顶部 ==================== -->
-  <button id="backToTop" style="
-    position:fixed;bottom:30px;right:30px;
-    width:44px;height:44px;border-radius:50%;
-    background:var(--green-mid,#2c5f2d);color:#fff;
-    display:flex;align-items:center;justify-content:center;
-    font-size:1.1rem;border:none;cursor:pointer;
-    box-shadow:0 4px 16px rgba(0,0,0,0.2);
-    z-index:999;opacity:0;pointer-events:none;
-    transition:opacity 0.3s ease;
-  " aria-label="回到顶部">
-    <i class="fa-solid fa-arrow-up"></i>
-  </button>
-
-  <!-- ==================== JS ==================== -->
+  <!-- ==================== 脚本 ==================== -->
   <script src="js/script.js"></script>
 </body>
 </html>
-
